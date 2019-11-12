@@ -112,11 +112,14 @@
 				const collect100FruitAudio = new Audio('100-collect.mp3')
 
 				socket.on('connect',() => {
-					coneted = true
-					console.log('> connected to serve')
+					connected = true
+					console.log('> Connected to serve')
 				})
 
-				socket.on()
+				socket.on('desconnected', () => {
+					console.log('> Desconncted')
+					connected =false
+				}
 
 			</script>
 		</div>

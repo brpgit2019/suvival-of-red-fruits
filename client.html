@@ -119,6 +119,13 @@
 				socket.on('desconnected', () => {
 					console.log('> Desconncted')
 					connected =false
+				})
+
+				socket.on('bootstrap',(gameInitialState) => {
+					game = gameInitialState
+					console.log('> Received initial state')
+					gameCavas.style.width = `${gameCavasWidth *18}px`
+					gameCavas.style.width = `${gameCavasHeight *18}px`
 				}
 
 			</script>

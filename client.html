@@ -92,18 +92,24 @@
 		<div id="max-concurrent-connection-message">
 			<h1>Número de conexão atingida!</h1>
 			<h2>Não feche esta página</h2>
-			<p>Apesar de número máximo ter sido atingidom,
-			   esta página ficará tentando reconectar em 
-			   background automaticamente. Assim que 
-			   aumentarmos o número de conexões, você não 
-			   precisará de fazer nada para reconectar e
-			   começar a jogar com a turma!
-			</p>
+			<p>Apesar de número máximo ter sido atingidom, esta página ficará tentando reconectar em background automaticamente. Assim que aumentarmos o número de conexões, você não precisará de fazer nada para reconectar ecomeçar a jogar com a turma!</p>
 		</div>
+		
 		<div id="game-container">
 			<canvas id="game-canvas"></canvas>
 			<table id="score-table"></table>
 		</div>
 		
+		<div>
+			
+			<script>
+				let connected = false
+				const socket
+				let game
+				const scoreTable = document.getElementById('score-table')
+				const gameCavas = document.getElementById('game-canvas')
+				
+			</script>
+		</div>
 	</body>
 </html>

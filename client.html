@@ -108,6 +108,7 @@
 				let game
 				const scoreTable = document.getElementById('score-table')
 				const gameCavas = document.getElementById('game-canvas')
+				let totalPlayerCount = ''
 				const collectFruitAudio = new Audio('collect.mp3')
 				const collect100FruitAudio = new Audio('100-collect.mp3')
 
@@ -124,8 +125,11 @@
 				socket.on('bootstrap',(gameInitialState) => {
 					game = gameInitialState
 					console.log('> Received initial state')
-					gameCavas.style.width = `${gameCavasWidth *18}px`
-					gameCavas.style.width = `${gameCavasHeight *18}px`
+					gameCanvas.style.width = `${game.CavasWidth *18}px`
+					gameCanvas.style.height = `${game.CavasHeight *18}px`
+					gameCanvas.width = game.CavasWidth
+					gameCanvas.height = game.CavasHeight
+
 				}
 
 			</script>

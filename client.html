@@ -107,7 +107,7 @@
 				const socket
 				let game
 				const scoreTable = document.getElementById('score-table')
-				const gameCavas = document.getElementById('game-canvas')
+				const gameCanvas = document.getElementById('game-canvas')
 				let totalPlayerCount = ''
 				const collectFruitAudio = new Audio('collect.mp3')
 				const collect100FruitAudio = new Audio('100-collect.mp3')
@@ -125,10 +125,29 @@
 				socket.on('bootstrap',(gameInitialState) => {
 					game = gameInitialState
 					console.log('> Received initial state')
-					gameCanvas.style.width = `${game.CavasWidth *18}px`
-					gameCanvas.style.height = `${game.CavasHeight *18}px`
-					gameCanvas.width = game.CavasWidth
-					gameCanvas.height = game.CavasHeight
+					gameCanvas.style.width = `${game.CanvasWidth *18}px`
+					gameCanvas.style.height = `${game.CanvasHeight *18}px`
+					gameCanvas.width = game.CanvasWidth
+					gameCanvas.height = game.CanvasHeight
+
+					const context = gameCanvas.getContext('2d')
+
+					requestAnimationFrame(renderGame)
+
+					function renderGame() {
+						const allPixels = game.CanvasWidth *gameCanvasHeight
+						
+						context.globalAlpha = 1
+						context.fillStyle = 'white'
+						fillRect(0, 0, game.CanvasWidth game.CanvasHeight)
+
+						for (const socketId in game.players) {
+							const player = game.players[socketId]
+							
+						}
+					}
+
+
 
 				}
 

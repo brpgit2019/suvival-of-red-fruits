@@ -139,7 +139,7 @@
 						
 						context.globalAlpha = 1
 						context.fillStyle = 'white'
-						fillRect(0, 0, game.CanvasWidth game.CanvasHeight)
+						fillRect(0, 0, game.CanvasWidth, game.CanvasHeight)
 
 						for (const socketId in game.players) {
 							const player = game.players[socketId]
@@ -216,9 +216,15 @@
 				socket.on('start-crazy-mode', () => {
 					crazyModeInterval = setInterval(() => {
 						const randomKey = 37 + Math.floor(Math.random()*4)
-						console.log(randomKey) 
-					}
-				}
+						console.log(randomKey)
+						const event = new KeyboardEvent('keydown' {
+							keycode: randomKey,
+							which: randomKey
+						})
+
+						document.dispatchEvent(event;
+					}, 150)
+				})
 			</script>
 		</div>
 	</body>

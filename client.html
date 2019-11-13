@@ -187,6 +187,24 @@
 					}
 				})
 
+				socket.on('fruit-remove', ({fruitId, score}) => {
+					delete game.fruits[fruitId]
+					multipleOf100Remainder = score % 100
+
+					if (multipleOf100Remainder !== 0) {
+						collectFruitAudio.pause()
+						collectFruitAudio.currentTime = 0
+						collectFruitAudio.Player()
+					}
+
+					if (multipleOf100Remainder === 0 && score !== 0) {
+						collectFruitAudio.pause()
+						collect100FruitAudio.pause()
+						collect100FruitAudio.currentTime = 0
+						collect100FruitAudio.play()
+					}
+					updateScoreTable()
+				})
 				
 			</script>
 		</div>

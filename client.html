@@ -104,20 +104,20 @@
 			
 			<script>
 				let connected = false
-				const socket
+				const socket = io()
 				let game
 				const scoreTable = document.getElementById('score-table')
 				const gameCanvas = document.getElementById('game-canvas')
-				let totalPlayerCount = ''
+				let totalPlayersCount = ''
 				const collectFruitAudio = new Audio('collect.mp3')
 				const collect100FruitAudio = new Audio('100-collect.mp3')
 
-				socket.on('connect',() => {
+				socket.on('connect', () => {
 					connected = true
-					console.log('> Connected to serve')
+					console.log('> Connected to server')
 				})
 
-				socket.on('desconnected', () => {
+				socket.on('desconnect', () => {
 					console.log('> Desconncted')
 					connected =false
 				})
@@ -152,13 +152,13 @@
 							const fruit = game.fruits[fruitId]
 							context.fillStyle = '#08a331'
 							context.globalAlpha = 1
-							context.fillRect(fruit.x, fruit.y, 1,1)
+							context.fillRect(fruit.x, fruit.y, 1, 1)
 						}
 
 						const currentPlayer = game.players[socketId]
 						context.fillStyle = 'f0db4f'
 						context.globalAlpha = 1
-
+						context.fillRect(currentPlayer.x, currentPlayer.y, 1, 1)
 						
 						
 						requestAnimationFrame(renderGame)
@@ -168,7 +168,7 @@
 				})
 
 				socket.on('Player-update', (player) => {
-					game.players[player.socketId]
+					game.players[player.socketId] =player.newState
 				})
 
 				socket.on('update-player-score', (score) => {

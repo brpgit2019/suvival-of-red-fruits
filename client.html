@@ -217,13 +217,22 @@
 					crazyModeInterval = setInterval(() => {
 						const randomKey = 37 + Math.floor(Math.random()*4)
 						console.log(randomKey)
-						const event = new KeyboardEvent('keydown' {
+						const event = new KeyboardEvent('keydown', {
 							keycode: randomKey,
 							which: randomKey
 						})
 
-						document.dispatchEvent(event;
+						document.dispatchEvent(event);
 					}, 150)
+				})
+				
+				socket.on('stop-crazy-mode', () => {
+					clearInterval(crazyModeInterval)
+				})
+
+				socket.on('show-max-concurrent-connections-message', () => {
+					document.getElementById('max-concurrent-connection-message').style.display = 'block'
+					document.getElementById('game-container').style.display = 'none'
 				})
 			</script>
 		</div>

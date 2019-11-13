@@ -203,9 +203,22 @@
 						collect100FruitAudio.currentTime = 0
 						collect100FruitAudio.play()
 					}
+					
 					updateScoreTable()
 				})
 				
+				socket.on('concurrent-connections', (concurrentConnections) => {
+					totalPlayersCount = concurrentConnections
+					updateScoreTable()
+				})
+
+				let crazyModeInterval
+				socket.on('start-crazy-mode', () => {
+					crazyModeInterval = setInterval(() => {
+						const randomKey = 37 + Math.floor(Math.random()*4)
+						console.log(randomKey) 
+					}
+				}
 			</script>
 		</div>
 	</body>

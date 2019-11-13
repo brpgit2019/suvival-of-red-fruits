@@ -176,6 +176,17 @@
 					updateScoreTable()
 				})
 
+				socket.on('player-remove', (socketId) => {
+					delete game.players[socketId]
+				})
+
+				socket.on('fruit-add', (fruit) => {
+					game.fruit[fruit.fruitId] = {
+						x: fruit.x,
+						y: fruit.y
+					}
+				})
+
 				
 			</script>
 		</div>

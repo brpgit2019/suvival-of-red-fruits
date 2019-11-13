@@ -163,9 +163,20 @@
 						
 						requestAnimationFrame(renderGame)
 					}
+					
 					updateScoreTable()
-					})
+				})
 
+				socket.on('Player-update', (player) => {
+					game.players[player.socketId]
+				})
+
+				socket.on('update-player-score', (score) => {
+					game.players[socket.id].score = score
+					updateScoreTable()
+				})
+
+				
 			</script>
 		</div>
 	</body>

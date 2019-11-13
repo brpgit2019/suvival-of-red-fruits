@@ -234,6 +234,17 @@
 					document.getElementById('max-concurrent-connection-message').style.display = 'block'
 					document.getElementById('game-container').style.display = 'none'
 				})
+
+				socket.on('hide-max-concurrent-connection message', () => {
+					document.getElementById('max-concurrent-connection-message').style.display = 'none'
+					document.getElementById('game-container').style.display = 'block'
+				})
+
+				function updateScoreTable() {
+					const maxResult = 10
+
+					
+				}
 			</script>
 		</div>
 	</body>

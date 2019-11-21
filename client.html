@@ -243,6 +243,28 @@
 				function updateScoreTable() {
 					const maxResult = 10
 
+					let scoreTableInnerHTML =  `
+						<tr class ="header">
+							<td>top 10 Jogadores</td>
+							<td>Pontos</td>
+						</tr>
+					`
+					const scoreArray = []
+
+					for (socketId in game.players) {
+						const player = game.players[socketId]
+						scoreArray.push({
+							socketId: socketId,
+							score: player.score
+
+						})
+
+					
+					}
+
+
+					
+
 					
 				}
 			</script>
